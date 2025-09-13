@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System - Elegant & Professional */
+
+@layer base {
+  :root {
+    /* Core Portfolio Palette - Elegant Professional */
+    --primary: 215 28% 17%;        /* Rich navy blue #1e293b */
+    --primary-light: 215 20% 30%;  /* Lighter navy variant */
+    --secondary: 33 100% 50%;      /* Elegant gold #d97706 */
+    --accent: 188 94% 37%;         /* Professional teal #0e7490 */
+    --neutral-light: 210 40% 98%;  /* Clean white #f8fafc */
+    --neutral-dark: 215 14% 34%;   /* Charcoal grey #475569 */
+    
+    /* Semantic Tokens */
+    --background: 210 40% 98%;     /* Clean white background */
+    --foreground: 215 28% 17%;     /* Rich navy text */
+    --muted: 210 40% 94%;          /* Light grey backgrounds */
+    --muted-foreground: 215 14% 34%;
+    
+    /* Interactive States */
+    --hover: 210 40% 94%;          /* Light hover */
+    --active: 33 100% 45%;         /* Gold active state */
+    
+    /* Gradients - Elegant & Professional */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--secondary) / 0.15) 50%, hsl(var(--accent) / 0.1) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--neutral-light)) 0%, hsl(var(--muted)) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--secondary) / 0.3) 0%, transparent 70%);
+    --gradient-text: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    
+    /* Shadows - Elegant & Depth */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 30px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 20px 60px hsl(var(--primary) / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Typography Scale */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+    
+    /* Component Specific */
+    --card: 210 40% 98%;
+    --card-foreground: 215 28% 17%;
+    --border: 215 14% 91%;
+    --input: 210 40% 94%;
+    --ring: 33 100% 50%;
+    --radius: 0.75rem;
+    
+    /* Additional semantic tokens for portfolio */
+    --primary-foreground: 210 40% 98%;
+    --secondary-foreground: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+  }
+}
+
+.dark {
+  /* Dark mode palette - Elegant and professional */
+  --primary: 45 93% 58%;        /* Bright yellow/gold as primary in dark */
+  --primary-light: 45 93% 68%;  /* Lighter yellow variant */
+  --secondary: 215 28% 17%;      /* Navy as secondary */
+  --accent: 199 89% 48%;         /* Cool blue accent */
+  --neutral-light: 0 0% 0%;      /* Full black */
+  --neutral-dark: 0 0% 100%;     /* Pure white */
+  
+  /* Dark semantic tokens */
+  --background: 0 0% 0%;         /* Full black background */
+  --foreground: 0 0% 100%;       /* Pure white text */
+  --muted: 0 0% 10%;             /* Very dark grey for muted backgrounds */
+  --muted-foreground: 0 0% 70%;
+  
+  /* Dark interactive states */
+  --hover: 0 0% 10%;             /* Very dark grey hover */
+  --active: 45 93% 53%;         /* Yellow active */
+  
+  /* Dark gradients with blue and yellow */
+  --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.9) 0%, hsl(45 93% 58% / 0.1) 50%, hsl(217 91% 60% / 0.1) 100%);
+  --gradient-card: linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 0%) 100%);
+  --gradient-glow: radial-gradient(circle at center, hsl(45 93% 58% / 0.3) 0%, transparent 70%);
+  --gradient-text: linear-gradient(90deg, hsl(217 91% 60%), hsl(45 93% 58%));
+  
+  /* Dark component tokens */
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 10%;
+  --ring: 45 93% 58%;
+  
+  --primary-foreground: 0 0% 0%;
+  --secondary-foreground: 0 0% 100%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent));
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  /* Typography Utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: hsl(var(--accent));
+    z-index: -1;
+  }
+  
+  .glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: hsl(var(--primary));
+    z-index: -2;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.05);
+  }
+  
+  /* Parallax container */
+  .parallax {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Fade in animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@keyframes glitch {
+  0%, 74%, 76%, 100% {
+    transform: translate(0);
+  }
+  75% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 74%, 76%, 100% {
+    transform: translate(0);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 74%, 76%, 100% {
+    transform: translate(0);
+  }
+  75% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Particle system base */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: hsl(var(--secondary) / 0.4);
+  border-radius: 50%;
+  animation: particleFloat 20s infinite linear;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
