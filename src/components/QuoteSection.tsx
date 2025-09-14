@@ -32,15 +32,14 @@ export const QuoteSection = () => {
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'fade-in-up' : ''}`}>
           <blockquote className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-primary leading-relaxed mb-8">
-            "The best way to predict the future is to{' '}
-            <span className="gradient-text">create it</span> with passion, 
-            precision, and endless curiosity."
+            "Every challenge is an opportunity to{' '}
+            <span className="gradient-text">innovate</span>."
           </blockquote>
           
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
           
           <p className="text-xl text-muted-foreground font-light">
-            My philosophy on innovation and development
+            My philosophy on challenges and innovation
           </p>
         </div>
         

@@ -36,21 +36,16 @@ export const AboutSection = () => {
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               
               <p>
-              I don’t just write code — I engineer experiences. Some days I’m training a machine to understand the world, other days I’m building web apps that scale without breaking a sweat. Either way, I believe technology should be smart, elegant, and fun to use.
+              I don’t just write code — I craft smart, beautiful, and human-centered experiences. Some days I’m teaching machines how to think, other days I’m building web apps that scale with ease. Either way, I believe technology should feel effortless, intelligent, and a little magical.
 
-
-              </p>
-              <p>
-              I thrive at the sweet spot where data meets design and algorithms meet user experience. My projects blend AI/ML, full-stack development, and creative problem-solving, because the best solutions aren’t just functional — they’re delightful.
 
 
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new design trends, 
-                contributing to open-source projects, or sharing knowledge with the 
-                developer community. I believe in continuous learning and staying ahead 
-                of the curve in this ever-evolving field. And yes, my code runs on coffee, curiosity, and a refusal to settle for “good enough.”
+              
+I love working at the crossroads of AI/ML, design, and full-stack development — where data meets creativity and algorithms meet user delight. Curiosity keeps me learning, coffee keeps me coding, and “good enough” is never good enough.
               </p>
+              
             </div>
           </div>
           
@@ -63,19 +58,25 @@ export const AboutSection = () => {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span className="text-foreground">Creating meaningful user experiences</span>
+                    <span className="text-foreground">Turning messy data into meaningful insights 🤖
+
+
+
+
+</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    <span className="text-foreground">Writing clean, maintainable code</span>
+                    <span className="text-foreground">
+                    Writing code my future self will actually thank me for 💻</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-foreground">Pushing creative boundaries</span>
+                    <span className="text-foreground">Designing products people don’t just use — they love ✨</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span className="text-foreground">Delivering exceptional results</span>
+                    <span className="text-foreground">Pushing boundaries and shipping ideas that matter 🚀</span>
                   </div>
                 </div>
               </div>

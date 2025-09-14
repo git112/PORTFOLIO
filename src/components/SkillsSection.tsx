@@ -1,22 +1,60 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const skills = [
+  // Frontend
   { name: 'React & Next.js', level: 95, category: 'Frontend' },
-  { name: 'TypeScript', level: 90, category: 'Language' },
-  { name: 'Node.js', level: 85, category: 'Backend' },
-  { name: 'Python', level: 80, category: 'Language' },
-  { name: 'UI/UX Design', level: 88, category: 'Design' },
-  { name: 'GraphQL', level: 82, category: 'API' },
-  { name: 'AWS & Cloud', level: 78, category: 'DevOps' },
-  { name: 'Three.js', level: 75, category: 'Creative' },
+  { name: 'Tailwind CSS', level: 90, category: 'Frontend' },
+  { name: 'Redux / Zustand', level: 85, category: 'Frontend' },
+  
+  // Backend
+  { name: 'Node.js & Express', level: 88, category: 'Backend' },
+  { name: 'Django / Flask', level: 82, category: 'Backend' },
+  { name: 'PostgreSQL / MongoDB', level: 85, category: 'Backend' },
+  
+  // Languages
+  { name: 'TypeScript', level: 90, category: 'Languages' },
+  { name: 'Python', level: 92, category: 'Languages' },
+  { name: 'JavaScript (ES6+)', level: 95, category: 'Languages' },
+  { name: 'C++', level: 75, category: 'Languages' },
+  
+  // AI/ML
+  { name: 'TensorFlow', level: 85, category: 'AI/ML' },
+  { name: 'PyTorch', level: 83, category: 'AI/ML' },
+  { name: 'Scikit-learn', level: 87, category: 'AI/ML' },
+  { name: 'Hugging Face Transformers', level: 82, category: 'AI/ML' },
+  { name: 'NLP / LLMs (BERT, GPT, RAG)', level: 85, category: 'AI/ML' },
+  { name: 'Computer Vision (OpenCV, YOLO)', level: 80, category: 'AI/ML' },
+  { name: 'Data Science (Pandas, NumPy, Matplotlib)', level: 90, category: 'AI/ML' },
+  
+  // APIs
+  { name: 'RESTful APIs', level: 88, category: 'APIs' },
+  { name: 'GraphQL', level: 82, category: 'APIs' },
+  { name: 'FastAPI', level: 80, category: 'APIs' },
+  
+  // DevOps
+  { name: 'AWS & Cloud Services', level: 80, category: 'DevOps' },
+  { name: 'Docker & Kubernetes', level: 78, category: 'DevOps' },
+  { name: 'GitHub Actions / CI-CD', level: 76, category: 'DevOps' },
+  
+  // Creative
+  { name: 'UI/UX Design (Figma, Adobe XD)', level: 88, category: 'Creative' },
+  { name: 'Three.js & 3D Experiences', level: 75, category: 'Creative' },
+  { name: 'D3.js (Data Viz)', level: 72, category: 'Creative' },
 ];
 
-const categories = ['All', 'Frontend', 'Backend', 'Design', 'Language', 'API', 'DevOps', 'Creative'];
+const categories = ['All', 'Frontend', 'Backend', 'Languages', 'AI/ML', 'APIs', 'DevOps', 'Creative'];
 
 export const SkillsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState('All');
-  const [animatedLevels, setAnimatedLevels] = useState<Record<string, number>>({});
+  const [animatedLevels, setAnimatedLevels] = useState<Record<string, number>>(() => {
+    // Initialize with actual skill levels
+    const initialLevels: Record<string, number> = {};
+    skills.forEach(skill => {
+      initialLevels[skill.name] = skill.level;
+    });
+    return initialLevels;
+  });
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -24,12 +62,6 @@ export const SkillsSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animate skill bars
-          skills.forEach((skill, index) => {
-            setTimeout(() => {
-              setAnimatedLevels(prev => ({ ...prev, [skill.name]: skill.level }));
-            }, index * 100);
-          });
         }
       },
       { threshold: 0.3 }
@@ -97,10 +129,9 @@ export const SkillsSection = () => {
               
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
+                  className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
                   style={{
-                    width: `${animatedLevels[skill.name] || 0}%`,
-                    transitionDelay: `${600 + index * 100}ms`
+                    width: `${animatedLevels[skill.name] || 0}%`
                   }}
                 />
               </div>
